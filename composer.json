@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "MBober35\\Starter": "src/"
+            "MBober35\\Starter\\": "src/"
         }
     },
     "extra": {
