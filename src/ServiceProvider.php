@@ -3,6 +3,7 @@
 namespace MBober35\Starter;
 
 use Illuminate\Support\ServiceProvider as BaseProvider;
+use MBober35\Starter\Commands\StarterCommand;
 
 class ServiceProvider extends BaseProvider
 {
@@ -13,7 +14,11 @@ class ServiceProvider extends BaseProvider
      */
     public function register()
     {
-        //
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                StarterCommand::class,
+            ]);
+        }
     }
 
     /**
