@@ -2,9 +2,9 @@
 
 namespace MBober35\Starter;
 
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\ServiceProvider as BaseProvider;
 
-class ServiceProvider extends ServiceProvider
+class ServiceProvider extends BaseProvider
 {
     /**
      * Register services.
