@@ -106,6 +106,7 @@ class StarterCommand extends Command
     {
         copy(__DIR__ . '/Stubs/front-end/bootstrap.js', resource_path('js/bootstrap.js'));
         copy(__DIR__ . '/Stubs/front-end/app.js', resource_path('js/app.js'));
+        copy(__DIR__ . '/Stubs/front-end/script.js', resource_path('js/script.js'));
     }
 
     /**
