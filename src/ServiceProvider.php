@@ -14,11 +14,15 @@ class ServiceProvider extends BaseProvider
      */
     public function register()
     {
+        // Команды.
         if ($this->app->runningInConsole()) {
             $this->commands([
                 StarterCommand::class,
             ]);
         }
+
+        // Подключение шаблонов.
+        $this->loadViewsFrom(__DIR__ . '/resources/views', 'mbober-starter');
     }
 
     /**

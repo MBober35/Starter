@@ -13,7 +13,9 @@ class StarterCommand extends Command
      * @var string
      */
     protected $signature = 'starter
+                    { --all : Run all options }
                     { --frontend : Refactor frontend files }
+                    { --layouts : Refactor layouts files }
                     { --auth : Install authentication UI scaffolding }';
 
     /**
@@ -40,15 +42,37 @@ class StarterCommand extends Command
      */
     public function handle()
     {
+        $all = $this->option("all", false);
         if (
+            $all ||
             $this->option("frontend") &&
             $this->confirm("It's refactor frontend files, are you shure?")
         ) {
             $this->initFrontEnd();
         }
+
+        if (
+            $all ||
+            $this->option("layouts") &&
+            $this->confirm("It's refactor layouts files, are you shure?")
+        ) {
+            $this->initLayouts();
+        }
         // TODO: auth option.
     }
 
+    protected function initLayouts()
+    {
+        (new Filesystem)->ensureDirectoryExists(resource_path('views/layouts'));
+
+        (new Filesystem)->copyDirectory(__DIR__ . '/Stubs/views/layouts', resource_path('views/layouts'));
+
+        $this->info('Layouts files created succesfully!');
+    }
+
+    /**
+     * Сгенерировать front-end фалы, добавить библиотеки.
+     */
     protected function initFrontEnd()
     {
         // NPM Packages.
@@ -68,7 +92,9 @@ class StarterCommand extends Command
         static::updateScss();
         static::updateBootstrapping();
         static::createExampleComponent();
-        static::removeNodeModules();
+        if ($this->confirm("Remove node_modules folder?")) {
+            static::removeNodeModules();
+        }
 
 
         $this->info("Bootstrap & Vue installed successfully!");
