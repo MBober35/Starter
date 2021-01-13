@@ -2,6 +2,8 @@
 
 namespace MBober35\Starter;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider as BaseProvider;
 use MBober35\Starter\Commands\StarterCommand;
 
@@ -32,6 +34,6 @@ class ServiceProvider extends BaseProvider
      */
     public function boot()
     {
-        //
+        Route::mixin(new AuthRouteMethods);
     }
 }
