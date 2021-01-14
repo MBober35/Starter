@@ -34,9 +34,9 @@ class AuthRouteMethods
                 }
 
                 // Password Reset Routes...
-//                if ($options['reset'] ?? true) {
-//                    $this->resetPassword();
-//                }
+                if ($options['reset'] ?? true) {
+                    $this->resetPassword();
+                }
 
                 // Password Confirmation Routes...
 //                if ($options['confirm'] ??

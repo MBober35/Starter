@@ -17,8 +17,7 @@
                                        value="{{ old('name') }}"
                                        required
                                        autocomplete="name"
-                                       placeholder="{{ __('Name') }}"
-                                       autofocus>
+                                       placeholder="{{ __('Name') }}">
                                 <label for="name">{{ __('Name') }}</label>
                                 @error('email')
                                     <div class="invalid-feedback" role="alert">
