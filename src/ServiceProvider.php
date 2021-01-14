@@ -22,9 +22,6 @@ class ServiceProvider extends BaseProvider
                 StarterCommand::class,
             ]);
         }
-
-        // Подключение шаблонов.
-        $this->loadViewsFrom(__DIR__ . '/resources/views', 'mbober-starter');
     }
 
     /**
@@ -35,5 +32,8 @@ class ServiceProvider extends BaseProvider
     public function boot()
     {
         Route::mixin(new AuthRouteMethods);
+
+        // Подключение шаблонов.
+        $this->loadViewsFrom(__DIR__ . '/resources/views', 'mbober-starter');
     }
 }
