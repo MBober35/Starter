@@ -39,10 +39,10 @@ class AuthRouteMethods
                 }
 
                 // Password Confirmation Routes...
-//                if ($options['confirm'] ??
-//                    class_exists($this->prependGroupNamespace('Auth\ConfirmPasswordController'))) {
-//                    $this->confirmPassword();
-//                }
+                if ($options['confirm'] ??
+                    class_exists($this->prependGroupNamespace('Auth\ConfirmPasswordController'))) {
+                    $this->confirmPassword();
+                }
 
                 // Email Verification Routes...
                 if ($options['verify'] ?? false) {
