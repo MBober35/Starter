@@ -7,10 +7,6 @@
     composer require mbober35/starter
     php artisan starter
 
-### Подключение путей для авторизации
-
-В `web.php` добавить `Route::auth()`
-
 Параметры:
     
     login (true) - авторизация пользователй

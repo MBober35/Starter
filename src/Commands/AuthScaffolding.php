@@ -13,6 +13,9 @@ trait AuthScaffolding
         $this->createControllers();
     }
 
+    /**
+     * Добавить контроллеры в приложение.
+     */
     protected function createControllers()
     {
         $filesystem = new Filesystem;
@@ -28,5 +31,43 @@ trait AuthScaffolding
             });
 
         $this->info('Authentication scaffolding generated successfully.');
+
+        $this->createHomeController();
+    }
+
+    /**
+     * Добавить главный контроллер.
+     */
+    protected function createHomeController()
+    {
+        $controller = app_path('Http/Controllers/HomeController.php');
+
+        if (file_exists($controller)) {
+            if ($this->confirm("The [HomeController.php] file already exists. Do you want to replace it?")) {
+                file_put_contents($controller, $this->compileControllerStub());
+            }
+        } else {
+            file_put_contents($controller, $this->compileControllerStub());
+        }
+
+        file_put_contents(
+            base_path('routes/web.php'),
+            file_get_contents(__DIR__ . '/Stubs/routes.stub'),
+            FILE_APPEND
+        );
+    }
+
+    /**
+     * Compiles the "HomeController" stub.
+     *
+     * @return string
+     */
+    protected function compileControllerStub()
+    {
+        return str_replace(
+            '{{namespace}}',
+            $this->laravel->getNamespace(),
+            file_get_contents(__DIR__ . '/Stubs/HomeController.stub')
+        );
     }
 }
