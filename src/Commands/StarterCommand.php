@@ -15,9 +15,9 @@ class StarterCommand extends Command
      * @var string
      */
     protected $signature = 'starter
-                    { --frontend : Without refactor frontend files }
-                    { --layouts : Without refactor layouts files }
-                    { --auth : Without install authentication UI scaffolding }';
+                    { --no-frontend : Without refactor frontend files }
+                    { --no-layouts : Without refactor layouts files }
+                    { --no-auth : Without install authentication UI scaffolding }';
 
     /**
      * The console command description.
@@ -44,21 +44,21 @@ class StarterCommand extends Command
     public function handle()
     {
         if (
-            ! $this->option("frontend") &&
+            ! $this->option("no-frontend") &&
             $this->confirm("It's refactor frontend files, are you shure?")
         ) {
             $this->initFrontEnd();
         }
 
         if (
-            ! $this->option("layouts") &&
+            ! $this->option("no-layouts") &&
             $this->confirm("It's refactor layouts files, are you shure?")
         ) {
             $this->initLayouts();
         }
 
         if (
-            ! $this->option("auth") &&
+            ! $this->option("no-auth") &&
             $this->confirm("It's refactor auth scaffoldind, are you shure?")
         ) {
             $this->initAuth();
