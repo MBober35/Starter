@@ -23,6 +23,7 @@ trait FrontEndScaffolding
                     "vue" => "^2.6.12",
                     "vue-template-compiler" => "^2.6.12",
                     "@fortawesome/fontawesome-free" => "^5.15.2",
+                    "sweetalert2" => "^10.13.0",
                 ] + $packages;
         });
         static::updateWebpackFile();
@@ -72,10 +73,14 @@ trait FrontEndScaffolding
         (new Filesystem)->ensureDirectoryExists(resource_path('js/app'));
         copy(__DIR__ . '/Stubs/front-end/app.js', resource_path('js/app/app.js'));
         copy(__DIR__ . '/Stubs/front-end/script.js', resource_path('js/app/script.js'));
+        copy(__DIR__ . '/Stubs/front-end/empty.js', resource_path('js/app/vue-includes.js'));
+        copy(__DIR__ . '/Stubs/front-end/empty.js', resource_path('js/app/script-includes.js'));
 
         (new Filesystem)->ensureDirectoryExists(resource_path('js/admin'));
         copy(__DIR__ . '/Stubs/front-end/app.js', resource_path('js/admin/admin.js'));
         copy(__DIR__ . '/Stubs/front-end/script.js', resource_path('js/admin/script.js'));
+        copy(__DIR__ . '/Stubs/front-end/empty.js', resource_path('js/admin/vue-includes.js'));
+        copy(__DIR__ . '/Stubs/front-end/empty.js', resource_path('js/admin/script-includes.js'));
     }
 
     /**
@@ -86,10 +91,12 @@ trait FrontEndScaffolding
         (new Filesystem)->ensureDirectoryExists(resource_path('sass/app'));
         copy(__DIR__ . '/Stubs/front-end/app.scss', resource_path('sass/app/app.scss'));
         copy(__DIR__ . '/Stubs/front-end/_variables.scss', resource_path('sass/app/_variables.scss'));
+        copy(__DIR__ . '/Stubs/front-end/_empty.scss', resource_path('sass/app/_includes.scss'));
 
         (new Filesystem)->ensureDirectoryExists(resource_path('sass/admin'));
         copy(__DIR__ . '/Stubs/front-end/app.scss', resource_path('sass/admin/admin.scss'));
         copy(__DIR__ . '/Stubs/front-end/_variables.scss', resource_path('sass/admin/_variables.scss'));
+        copy(__DIR__ . '/Stubs/front-end/_empty.scss', resource_path('sass/admin/_includes.scss'));
     }
 
     /**
