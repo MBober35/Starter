@@ -16,9 +16,12 @@ mix
         processCssUrls: false,
     })
     .sourceMaps(false, 'inline-source-map')
-    .js('resources/js/app.js', 'public/js')
+    .js('resources/js/app/app.js', 'public/js')
+    .js('resources/js/admin/admin.js', 'public/js')
     .vue()
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/admin/admin.scss', 'public/css')
+    .sass('resources/sass/app/app.scss', 'public/css')
+    .copy("node_modules/@fortawesome/fontawesome-free/webfonts", "public/webfonts");
 
 if (mix.inProduction()) {
     mix.version();

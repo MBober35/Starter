@@ -22,6 +22,7 @@ trait FrontEndScaffolding
                     "resolve-url-loader" => "^3.1.2",
                     "vue" => "^2.6.12",
                     "vue-template-compiler" => "^2.6.12",
+                    "@fortawesome/fontawesome-free" => "^5.15.2",
                 ] + $packages;
         });
         static::updateWebpackFile();
@@ -67,8 +68,14 @@ trait FrontEndScaffolding
     protected static function updateBootstrapping()
     {
         copy(__DIR__ . '/Stubs/front-end/bootstrap.js', resource_path('js/bootstrap.js'));
-        copy(__DIR__ . '/Stubs/front-end/app.js', resource_path('js/app.js'));
-        copy(__DIR__ . '/Stubs/front-end/script.js', resource_path('js/script.js'));
+
+        (new Filesystem)->ensureDirectoryExists(resource_path('js/app'));
+        copy(__DIR__ . '/Stubs/front-end/app.js', resource_path('js/app/app.js'));
+        copy(__DIR__ . '/Stubs/front-end/script.js', resource_path('js/app/script.js'));
+
+        (new Filesystem)->ensureDirectoryExists(resource_path('js/admin'));
+        copy(__DIR__ . '/Stubs/front-end/app.js', resource_path('js/admin/admin.js'));
+        copy(__DIR__ . '/Stubs/front-end/script.js', resource_path('js/admin/script.js'));
     }
 
     /**
@@ -76,10 +83,13 @@ trait FrontEndScaffolding
      */
     protected static function updateScss()
     {
-        (new Filesystem)->ensureDirectoryExists(resource_path('sass'));
+        (new Filesystem)->ensureDirectoryExists(resource_path('sass/app'));
+        copy(__DIR__ . '/Stubs/front-end/app.scss', resource_path('sass/app/app.scss'));
+        copy(__DIR__ . '/Stubs/front-end/_variables.scss', resource_path('sass/app/_variables.scss'));
 
-        copy(__DIR__ . '/Stubs/front-end/_variables.scss', resource_path('sass/_variables.scss'));
-        copy(__DIR__ . '/Stubs/front-end/app.scss', resource_path('sass/app.scss'));
+        (new Filesystem)->ensureDirectoryExists(resource_path('sass/admin'));
+        copy(__DIR__ . '/Stubs/front-end/app.scss', resource_path('sass/admin/admin.scss'));
+        copy(__DIR__ . '/Stubs/front-end/_variables.scss', resource_path('sass/admin/_variables.scss'));
     }
 
     /**
