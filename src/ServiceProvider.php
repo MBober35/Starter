@@ -2,6 +2,7 @@
 
 namespace MBober35\Starter;
 
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider as BaseProvider;
@@ -35,5 +36,7 @@ class ServiceProvider extends BaseProvider
 
         // Подключение шаблонов.
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'mbober-starter');
+
+        Paginator::useBootstrap();
     }
 }
