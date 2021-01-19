@@ -7,6 +7,7 @@ Front-end раздерен на две папки, `app` для основног
 ## Install
 
     composer require mbober35/starter
+    php artisan migrate
     php artisan starter
 
 Параметры:
@@ -30,3 +31,7 @@ Front-end раздерен на две папки, `app` для основног
 Пармерт `layouts` запускает команду без создания файла `app.blade.php`
 
 Парметр `auth` запускает команду без создания контроллеров для авторизации.
+
+    login-link {email} {--send=} {--get}
+
+Сгенерировать одрозовую ссылку на вход
