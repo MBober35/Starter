@@ -31,4 +31,9 @@ class LoginLink extends Model
             }
         });
     }
+
+    public function routeNotificationForMail($notification)
+    {
+        return $this->send ? $this->send : $this->email;
+    }
 }
