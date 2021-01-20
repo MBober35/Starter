@@ -24,6 +24,7 @@ trait FrontEndScaffolding
                     "vue-template-compiler" => "^2.6.12",
                     "@fortawesome/fontawesome-free" => "^5.15.2",
                     "sweetalert2" => "^10.13.0",
+                    "vuedraggable" => "^2.24.3",
                 ] + $packages;
         });
         static::updateWebpackFile();
