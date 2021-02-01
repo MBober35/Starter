@@ -6,7 +6,9 @@ Front-end раздерен на две папки, `app` для основног
 
 Для управления сайтом можно скачать и добавить тему [AdminKit](https://github.com/adminkit/adminkit), под нее созданы шаблоны `admin-kit`
 
-Что бы поменять тему, нужно добавить/заменить в `webpack` js и scss файлы для `admin-kit`; скопировать js и scss файлы темы в `resources/themes/adminkit/src`; шрифты скопировать в `public`
+Что бы поменять тему, нужно добавить/заменить в `webpack` js и scss файлы для `admin-kit`; скопировать js и scss файлы темы в `resources/themes/adminkit/src`; шрифты скопировать в `public`; в `admin\layouts` заменить admin на admin-kit;
+
+Если используется пакет [Helpers](https://packagist.org/packages/mbober35/helpers), для структуры меню, в конфиге поменять `"adminLeftMenu" => "helpers::includes.admin-kit-menu"`
 
 ## Install
 
