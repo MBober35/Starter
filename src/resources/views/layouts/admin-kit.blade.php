@@ -21,19 +21,19 @@
     @include('mbober-starter::includes.scripts')
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ mix("css/adminkit.css") }}">
+    <link rel="stylesheet" href="{{ mix("css/admin-kit.css") }}">
 </head>
 <body>
     @include('mbober-starter::includes.svg')
     @stack("svg")
 
     <div id="app" class="wrapper">
-        @include("mbober-starter::adminkit.nav")
-        @include("mbober-starter::adminkit.main")
+        @include("mbober-starter::admin-kit.nav")
+        @include("mbober-starter::admin-kit.main")
     </div>
 
     <!-- Scripts -->
-    <script src="{{ mix('js/adminkit.js') }}" defer></script>
+    <script src="{{ mix('js/admin-kit.js') }}" defer></script>
     @stack("more-scripts")
 </body>
 </html>

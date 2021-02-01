@@ -3,11 +3,11 @@
         <i class="hamburger align-self-center"></i>
     </a>
 
-    @include("mbober-starter::adminkit.navbar-form")
+    @include("mbober-starter::admin-kit.navbar-form")
 
     <div class="navbar-collapse collapse">
         <ul class="navbar-nav navbar-align">
-            @include("mbober-starter::adminkit.navbar-menu")
+            @include("mbober-starter::admin-kit.navbar-menu")
 
             @guest
                 @if (Route::has('login'))
@@ -33,7 +33,7 @@
                         <span class="text-dark pe-2">{{ Auth::user()->name }}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end">
-                        @include("mbober-starter::adminkit.user-menu")
+                        @include("mbober-starter::admin-kit.user-menu")
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

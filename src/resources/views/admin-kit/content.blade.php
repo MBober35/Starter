@@ -9,11 +9,11 @@
                 </div>
             @endif
 
-            @include("mbober-starter::adminkit.breadcrumb")
+            @include("mbober-starter::admin-kit.breadcrumb")
         </div>
     </div>
 
-    @include("mbober-starter::adminkit.messages")
+    @include("mbober-starter::admin-kit.messages")
 
     @hasSection("content")
         <section class="content-section">
