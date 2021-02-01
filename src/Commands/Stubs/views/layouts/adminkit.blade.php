@@ -1,1 +1,0 @@
-@include("mbober-starter::layouts.adminkit")
