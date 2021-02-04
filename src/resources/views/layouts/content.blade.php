@@ -13,7 +13,7 @@
 @endif
 
 @hasSection("content")
-    <section class="content-section">
+    <section class="content-section @yield('page-class')">
         <div class="container">
             @yield('content')
         </div>
