@@ -15,11 +15,11 @@
 
                     @yield("raw-header-upper-title")
 
-                    <aside class="d-none d-lg-block col-lg-3 sidebar-section">
+                    <aside class="d-none d-lg-block col-lg-3 sidebar-section @yield('aside-class')">
                         @yield('sidebar')
                     </aside>
 
-                    <section class="col-12 col-lg-9 content-section">
+                    <section class="col-12 col-lg-9 content-section @yield('page-class')">
                         @yield('content')
                     </section>
                 </div>
