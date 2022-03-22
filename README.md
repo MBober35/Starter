@@ -10,6 +10,8 @@ Front-end раздерен на две папки, `app` для основног
 
 Если используется пакет [Helpers](https://packagist.org/packages/mbober35/helpers), для структуры меню, в конфиге поменять `"adminLeftMenu" => "helpers::includes.admin-kit-menu"`
 
+Публикация шаблонов: `php artisan vendor:publish --provider="MBober35\Starter\ServiceProvider" --tag=views`
+
 ## Install
 
     composer require mbober35/starter

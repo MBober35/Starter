@@ -47,6 +47,11 @@ class ServiceProvider extends BaseProvider
         // Подключение шаблонов.
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'mbober-starter');
 
+        // Публикация шаблонов.
+        $this->publishes([
+            __DIR__ . "/resources/views" => resource_path("views/vendor/mbober-starter")
+        ], "views");
+
         Paginator::useBootstrap();
 
         // Миграции.
